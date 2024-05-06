@@ -10,7 +10,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://terser.org',
+  url: 'https://tech-docs.hhf.co.in',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -18,8 +18,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'terser', // Usually your GitHub org/user name.
-  projectName: 'terser.github.io', // Usually your repo name.
+  organizationName: 'hhf', // Usually your GitHub org/user name.
+  projectName: 'hhf.github.io', // Usually your repo name.
   deploymentBranch: 'master', // Branch used to deploy on GitHub pages.
 
   onBrokenLinks: 'throw',
