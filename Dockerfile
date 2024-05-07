@@ -10,4 +10,4 @@ COPY package-lock.json /app
 RUN npm ci
 COPY . /app
 
-CMD ["yarn", "start", "--host", "0.0.0.0"]
+CMD ["yarn", "serve", "--build", "--host", "0.0.0.0"]
