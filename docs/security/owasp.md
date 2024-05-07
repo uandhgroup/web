@@ -1,3 +1,8 @@
+---
+id: owasp
+title: Owasp
+sidebar_label: Owasp
+---
 
 When it comes to web application testing, there’s arguably no better reference guide than the  [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project). Based on a large number of data sets and opinions surveyed from a plethora of industry professionals, it ranks the ten most severe security weaknesses in web applications. This format makes it a great go-to reference for web application security, helping to address frequently occurring vulnerabilities by also offering mitigation steps for each identified vulnerability type.
 
@@ -267,8 +272,8 @@ We’ve got two critical ones here — both related to the video game industry!
 
 1.  Improper access control led to a security researcher being able to get the CD keys for  _any game_ on Steam. Definitely not intended privileges there. Valve summarised the exploit:
 
-> ‘Using the /partnercdkeys/assignkeys/ endpoint on partner.steamgames.com with specific parameters, an authenticated user could download previously-generated CD keys for a game which they would not normally have access.’
+‘Using the /partnercdkeys/assignkeys/ endpoint on partner.steamgames.com with specific parameters, an authenticated user could download previously-generated CD keys for a game which they would not normally have access.’
 
 2. An exposed  `.bash_history`  file on  [http://drivers.razersupport.com](http://drivers.razersupport.com/)  meant that any visitor to this endpoint could publicly view the file (see the report summary  [here](https://hackerone.com/reports/293470)). According to Razer:
 
-> ‘When a DB admin eventually executed a command involving clear text credentials for the database, this exposed the password for that database.’
+‘When a DB admin eventually executed a command involving clear text credentials for the database, this exposed the password for that database.’
