@@ -92,6 +92,12 @@ const config = {
             position: 'left',
           },
           {
+            label: 'Nginx',
+            type: 'doc',
+            docId: 'nginx',
+            position: 'left',
+          },
+          {
             href: 'https://try.terser.org',
             label: 'REPL',
             position: 'right',
