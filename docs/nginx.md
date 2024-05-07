@@ -1,7 +1,7 @@
 ---
-id: miscellaneous
-title: Miscellaneous
-sidebar_label: Miscellaneous
+id: nginx
+title: Nginx
+sidebar_label: Nginx
 ---
 ### Keeping copyright notices or other comments
 
