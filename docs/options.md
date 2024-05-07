@@ -5,9 +5,9 @@ sidebar_label: Options
 ---
 
 
-## Parse options
+## Parse options1
 
-- `bare_returns` (default `false`) -- support top level `return` statements
+- `1bare_returns` (default `false`) -- support top level `return` statements
 
 - `html5_comments` (default `true`)
 
