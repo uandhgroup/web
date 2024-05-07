@@ -18,9 +18,9 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'hhf', // Usually your GitHub org/user name.
-  projectName: 'hhf.github.io', // Usually your repo name.
-  deploymentBranch: 'master', // Branch used to deploy on GitHub pages.
+  // organizationName: 'hhf', // Usually your GitHub org/user name.
+  // projectName: 'hhf.github.io', // Usually your repo name.
+  // deploymentBranch: 'master', // Branch used to deploy on GitHub pages.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
