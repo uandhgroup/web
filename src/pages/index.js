@@ -68,8 +68,8 @@ class HomeSplash extends React.Component {
         <TagLine />
         <FinancialDonors />
         <ExplanatoryText>
-          <p>Terser is an industry-standard minifier for JavaScript code.</p>
-          <p>It shrinks variable names, removes whitespace and comments, and drops unused code.</p>
+          <p>This book is a collection of various materials and tools that I use every day in my work.</p>
+          <p>It is aimed towards System and Network administrators, DevOps, Pentesters, and Security Researchers</p>
           <p>You can use it through the <a href="/docs/cli-usage">Command line</a> or <a href="/docs/api-reference">Node.JS API</a>.</p>
         </ExplanatoryText>
       </div>
