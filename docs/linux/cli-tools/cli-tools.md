@@ -1,11 +1,11 @@
 ---
-id: nginx
-title: Nginx
-sidebar_label: Nginx
+id: cli-tools
+title: CLI Tools
+sidebar_label: CLI Tools
 ---
 
 
-#### CLI Tools  
+### CLI Tools  
 
    [**GNU Bash**](https://www.gnu.org/software/bash/) \- is an sh-compatible shell that incorporates useful features from the Korn shell and C shell.  
    [**Zsh**](https://www.zsh.org/) \- is a shell designed for interactive use, although it is also a powerful scripting language.  
@@ -16,7 +16,7 @@ sidebar_label: Nginx
    [**Starship**](https://github.com/starship/starship) \- the cross-shell prompt written in Rust.  
    [**powerlevel10k**](https://github.com/romkatv/powerlevel10k) \- is a fast reimplementation of Powerlevel9k ZSH theme.  
 
-#### Shell plugins
+### Shell plugins
 
    [**z**](https://github.com/rupa/z) \- tracks the folder you use the most and allow you to jump, without having to type the whole path.  
    [**fzf**](https://github.com/junegunn/fzf) \- is a general-purpose command-line fuzzy finder.  
@@ -24,7 +24,7 @@ sidebar_label: Nginx
    [**zsh-syntax-highlighting**](https://github.com/zsh-users/zsh-syntax-highlighting) \- Fish shell like syntax highlighting for Zsh.  
    [**Awesome ZSH Plugins**](https://github.com/unixorn/awesome-zsh-plugins) \- A list of frameworks, plugins, themes and tutorials for ZSH.  
 
-#### Managers
+### Managers
 
    [**Midnight Commander**](https://midnight-commander.org/) \- is a visual file manager, licensed under GNU General Public License.  
    [**ranger**](https://github.com/ranger/ranger) \- is a VIM-inspired filemanager for the console.  
@@ -33,7 +33,7 @@ sidebar_label: Nginx
    [**tmux**](https://github.com/tmux/tmux/wiki) \- is a terminal multiplexer, lets you switch easily between several programs in one terminal.  
    [**tmux-cssh**](https://github.com/peikk0/tmux-cssh) \- is a tool to set comfortable and easy to use functionality tmux-sessions.  
 
-#### Text editors
+### Text editors
 
    [**vi**](http://ex-vi.sourceforge.net/) \- is one of the most common text editors on Unix.  
    [**vim**](https://www.vim.org/) \- is a highly configurable text editor.  
@@ -43,12 +43,12 @@ sidebar_label: Nginx
    [**spacemacs**](https://www.spacemacs.org/) \- a community-driven Emacs distribution.  
    [**spacevim**](https://spacevim.org/) \- a community-driven vim distribution.  
 
-#### Files and directories
+### Files and directories
 
    [**fd**](https://github.com/sharkdp/fd) \- is a simple, fast and user-friendly alternative to find.  
    [**ncdu**](https://dev.yorhel.nl/ncdu) \- is an easy to use, fast disk usage analyzer.  
 
-#### Network
+### Network
 
    [**PuTTY**](https://www.putty.org/) \- is an SSH and telnet client, developed originally by Simon Tatham.  
    [**Mosh**](https://mosh.org/) \- is a SSH wrapper designed to keep a SSH session alive over a volatile connection.  
@@ -88,7 +88,7 @@ sidebar_label: Nginx
    [**inception**](https://github.com/proabiral/inception) \- a highly configurable tool to check for whatever you like against any number of hosts.  
    [**mRemoteNG**](https://mremoteng.org/) \- a fork of mRemote, multi-tabbed PuTTy on steroids!  
 
-#### Network (DNS)
+### Network (DNS)
 
    [**dnsdiag**](https://github.com/farrokhi/dnsdiag) \- is a DNS diagnostics and performance measurement tools.  
    [**fierce**](https://github.com/mschwager/fierce) \- is a DNS reconnaissance tool for locating non-contiguous IP space.  
@@ -104,7 +104,7 @@ sidebar_label: Nginx
    [**grimd**](https://github.com/looterz/grimd) \- fast dns proxy, built to black-hole internet advertisements and malware servers.  
    [**dnstwist**](https://github.com/elceef/dnstwist) \- detect typosquatters, phishing attacks, fraud, and brand impersonation.  
 
-#### Network (HTTP)
+### Network (HTTP)
 
    [**curl**](https://curl.haxx.se/) \- is a command line tool and library for transferring data with URLs.  
    [**kurly**](https://gitlab.com/davidjpeacock/kurly) \- is an alternative to the widely popular curl program, written in Golang.  
@@ -133,7 +133,7 @@ sidebar_label: Nginx
    [**http-observatory**](https://github.com/mozilla/http-observatory) \- Mozilla HTTP Observatory cli version.  
    [**Hurl**](https://hurl.dev) \- is a command line tool to run and test HTTP requests with plain text.  
 
-#### SSL
+### SSL
 
    [**openssl**](https://www.openssl.org/) \- is a robust, commercial-grade, and full-featured toolkit for the TLS and SSL protocols.  
    [**gnutls-cli**](https://gnutls.org/manual/html_node/gnutls_002dcli-Invocation.html) \- client program to set up a TLS connection to some other computer.  
@@ -149,14 +149,14 @@ sidebar_label: Nginx
    [**mkchain**](https://github.com/trimstray/mkchain) \- open source tool to help you build a valid SSL certificate chain.  
    [**ssl-cert-check**](https://github.com/Matty9191/ssl-cert-check) \- SSL Certification Expiration Checker.  
 
-#### Security
+### Security
 
    [**SELinux**](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-selinux) \- provides a flexible Mandatory Access Control (MAC) system built into the Linux kernel.  
    [**AppArmor**](https://wiki.ubuntu.com/AppArmor) \- proactively protects the operating system and applications from external or internal threats.  
    [**grapheneX**](https://github.com/grapheneX/grapheneX) \- Automated System Hardening Framework.  
    [**DevSec Hardening Framework**](https://github.com/dev-sec/) \- Security + DevOps: Automatic Server Hardening.  
 
-#### Auditing Tools
+### Auditing Tools
 
    [**ossec**](https://www.ossec.net/) \- actively monitoring all aspects of system activity with file integrity monitoring.  
    [**auditd**](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security_guide/chap-system_auditing) \- provides a way to track security-relevant information on your system.  
@@ -167,7 +167,7 @@ sidebar_label: Nginx
    [**PE-sieve**](https://github.com/hasherezade/pe-sieve) \- is a light-weight tool that helps to detect malware running on the system.  
    [**PEASS**](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite) \- privilege escalation tools for Windows and Linux/Unix and MacOS.  
 
-#### System Diagnostics/Debuggers
+### System Diagnostics/Debuggers
 
    [**strace**](https://github.com/strace/strace) \- diagnostic, debugging and instructional userspace utility for Linux.  
    [**DTrace**](http://dtrace.org/blogs/about/) \- is a performance analysis and troubleshooting tool.  
@@ -191,14 +191,14 @@ sidebar_label: Nginx
    [**hexyl**](https://github.com/sharkdp/hexyl) \- a command-line hex viewer.  
    [**Austin**](https://github.com/p403n1x87/austin) \- Python frame stack sampler for CPython.  
 
-\#### Log Analyzers
+### Log Analyzers
 
    [**angle-grinder**](https://github.com/rcoh/angle-grinder) \- slice and dice log files on the command line.  
    [**lnav**](https://lnav.org) \- log file navigator with search and automatic refresh.  
    [**GoAccess**](https://goaccess.io/) \- real-time web log analyzer and interactive viewer that runs in a terminal.  
    [**ngxtop**](https://github.com/lebinh/ngxtop) \- real-time metrics for nginx server.  
 
-#### Databases
+### Databases
 
    [**usql**](https://github.com/xo/usql) \- universal command-line interface for SQL databases.  
    [**pgcli**](https://github.com/dbcli/pgcli) \- postgres CLI with autocompletion and syntax highlighting.  
@@ -210,21 +210,21 @@ sidebar_label: Nginx
    [**iredis**](https://github.com/laixintao/iredis) \- a terminal client for redis with autocompletion and syntax highlighting.  
    [**SchemaCrawler**](https://www.schemacrawler.com/diagramming.html) \- generates an E-R diagram of your database.  
 
-#### TOR
+### TOR
 
    [**Nipe**](https://github.com/GouveaHeitor/nipe) \- script to make Tor Network your default gateway.  
    [**multitor**](https://github.com/trimstray/multitor) \- a tool that lets you create multiple TOR instances with a load-balancing.  
 
-#### Messengers/IRC Clients
+### Messengers/IRC Clients
 
    [**Irssi**](https://irssi.org) \- is a free open source terminal based IRC client.  
    [**WeeChat**](https://weechat.org/) \- is an extremely extensible and lightweight IRC client.  
 
-#### Productivity
+### Productivity
 
    [**taskwarrior**](https://taskwarrior.org) \- task management system, todo list  
 
-#### Other
+### Other
 
    [**sysadmin-util**](https://github.com/skx/sysadmin-util) \- tools for Linux/Unix sysadmins.  
    [**incron**](http://inotify.aiken.cz/) \- is an inode-based filesystem notification technology.  
