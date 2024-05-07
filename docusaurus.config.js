@@ -5,8 +5,8 @@ const prismReact = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Terser',
-  tagline: 'JavaScript mangler and compressor toolkit',
+  title: 'Books',
+  tagline: 'A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools, and more',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
