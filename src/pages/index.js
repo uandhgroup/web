@@ -13,7 +13,7 @@ class HomeSplash extends React.Component {
 
     const Logo = props => (
       <div className={styles.projectLogo}>
-        <h1><img src={props.img_src} alt="Terser" width={900} height={274} style={{height: 'auto'}} /></h1>
+        <h1><img src={props.img_src} alt="HHFBooks" width={900} height={274} style={{height: 'auto'}} /></h1>
       </div>
     );
 

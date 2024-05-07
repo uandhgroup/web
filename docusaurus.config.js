@@ -65,9 +65,9 @@ const config = {
     ({
       image: 'img/terser-square-logo.png',
       navbar: {
-        title: 'Terser',
+        title: 'HHF Books',
         logo: {
-          alt: 'Terser logo',
+          alt: 'HHF Books',
           src: 'img/terser-square-logo.svg',
           height: 32,
           width: 32,
