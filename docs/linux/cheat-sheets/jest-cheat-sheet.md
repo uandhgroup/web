@@ -8,46 +8,6 @@ sidebar_label: Jest Cheat Sheet
 A cheat sheet for uncommon Jest commands
 I recommend Mrm and jest-codemods for single-command Jest installation and easy migration from other frameworks.
 
-- [Test structure](#test-structure)
-- [Matchers](#matchers)
-  - [Basic matchers](#basic-matchers)
-  - [Truthiness](#truthiness)
-  - [Numbers](#numbers)
-  - [Strings](#strings)
-  - [Arrays](#arrays)
-  - [Objects](#objects)
-  - [Exceptions](#exceptions)
-  - [Snapshots](#snapshots)
-  - [Mock functions](#mock-functions)
-  - [Misc](#misc)
-  - [Promise matchers (Jest 20+)](#promise-matchers-jest-20)
-- [Async tests](#async-tests)
-  - [async/await](#asyncawait)
-  - [Promises](#promises)
-  - [done() callback](#done-callback)
-- [Mocks](#mocks)
-  - [Mock functions](#mock-functions-1)
-  - [Returning, resolving and rejecting values](#returning-resolving-and-rejecting-values)
-  - [Mock modules using `jest.mock` method](#mock-modules-using-jestmock-method)
-  - [Mock modules using a mock file](#mock-modules-using-a-mock-file)
-  - [Mock object methods](#mock-object-methods)
-  - [Mock getters and setters (Jest 22.1.0+)](#mock-getters-and-setters-jest-2210)
-  - [Mock getters and setters](#mock-getters-and-setters)
-  - [Clearing and restoring mocks](#clearing-and-restoring-mocks)
-  - [Accessing the original module when using mocks](#accessing-the-original-module-when-using-mocks)
-  - [Timer mocks](#timer-mocks)
-- [Data-driven tests (Jest 23+)](#data-driven-tests-jest-23)
-- [Skipping tests](#skipping-tests)
-- [Testing modules with side effects](#testing-modules-with-side-effects)
-- [Usage with Babel and TypeScript](#usage-with-babel-and-typescript)
-- [Resources](#resources)
-- [You may also like](#you-may-also-like)
-- [Contributing](#contributing)
-- [Sponsoring](#sponsoring)
-- [Author and license](#author-and-license)
-
-<!-- tocstop -->
-
 ## Test structure
 
 ```js
@@ -160,11 +120,13 @@ expect(fn).toThrow('Out of cheese')
 expect(fn).toThrowErrorMatchingSnapshot()
 ```
 
+```htm
 <details>
   <summary>Aliases</summary>
 
 - `toThrowError` → `toThrow`
   </details>
+```
 
 ### Snapshots
 
@@ -199,6 +161,7 @@ expect(fn.mock.calls).toEqual([
 expect(fn.mock.calls[0][0]).toBe(2) // fn.mock.calls[0][0] — the first argument of the first call
 ```
 
+```htm
 <details>
   <summary>Aliases</summary>
 
@@ -211,6 +174,7 @@ expect(fn.mock.calls[0][0]).toBe(2) // fn.mock.calls[0][0] — the first argumen
 - `lastReturnedWith` → `toHaveLastReturnedWith`
 - `nthReturnedWith` → `toHaveNthReturnedWith`
   </details>
+```
 
 ### Misc
 
@@ -396,17 +360,17 @@ jest.mock('lodash/memoize', () => (a) => a, { virtual: true }) // The original l
 
 ### Mock modules using a mock file
 
-1.  Create a file like `__mocks__/lodash/memoize.js`:
+   Create a file like `__mocks__/lodash/memoize.js`:
 
-    ```js
+```js
     module.exports = (a) => a
-    ```
+```
 
-2.  Add to your test:
+Add to your test:
 
-    ```js
+```js
     jest.mock('lodash/memoize')
-    ```
+```
 
 > Note: When using `babel-jest`, calls to `jest.mock` will automatically be hoisted to the top of the code block. Use `jest.doMock` if you want to explicitly avoid this behavior.
 
@@ -602,21 +566,3 @@ test('second text', () => {
 ## Usage with Babel and TypeScript
 
 Add [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) or [ts-jest](https://github.com/kulshekhar/ts-jest). Check their docs for installation instructions.
-
-## Resources
-
-- [Jest site](https://facebook.github.io/jest/)
-- [Modern React testing, part 1: best practices](https://blog.sapegin.me/all/react-testing-1-best-practices/) by Artem Sapegin
-- [Modern React testing, part 2: Jest and Enzyme](https://blog.sapegin.me/all/react-testing-2-jest-and-enzyme/) by Artem Sapegin
-- [Modern React testing, part 3: Jest and React Testing Library](https://blog.sapegin.me/all/react-testing-3-jest-and-react-testing-library/) by Artem Sapegin
-- [React Testing Examples](https://react-testing-examples.com/)
-- [Testing React Applications](https://youtu.be/59Ndb3YkLKA) by Max Stoiber
-- [Effective Snapshot Testing](https://blog.kentcdodds.com/effective-snapshot-testing-e0d1a2c28eca) by Kent C. Dodds
-- [Migrating to Jest](https://medium.com/@kentcdodds/migrating-to-jest-881f75366e7e#.pc4s5ut6z) by Kent C. Dodds
-- [Migrating AVA to Jest](http://browniefed.com/blog/migrating-ava-to-jest/) by Jason Brown
-- [How to Test React and MobX with Jest](https://semaphoreci.com/community/tutorials/how-to-test-react-and-mobx-with-jest) by Will Stern
-- [Testing React Intl components with Jest and Enzyme](https://medium.com/@sapegin/testing-react-intl-components-with-jest-and-enzyme-f9d43d9c923e) by Artem Sapegin
-- [Testing with Jest: 15 Awesome Tips and Tricks](https://medium.com/@stipsan/testing-with-jest-15-awesome-tips-and-tricks-42150ec4c262) by Stian Didriksen
-- Taking Advantage of Jest Matchers by Ben McCormick: [Part 1](https://benmccormick.org/2017/08/15/jest-matchers-1/), [Part 2](https://benmccormick.org/2017/09/04/jest-matchers-2/)
-
----

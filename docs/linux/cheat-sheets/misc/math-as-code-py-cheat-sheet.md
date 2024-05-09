@@ -1,24 +1,24 @@
 ---
-id: math-as-code-js-cheat-sheet
+id: math-as-code-py-cheat-sheet
 title: Math As Code Py Cheat Sheet
 sidebar_label: Math As Code Py Cheat Sheet
 ---
 
 # Math As Code Py Cheat Sheet
+
 This is a reference to ease developers into mathematical notation by showing comparisons with Python code.
 
-Motivation: Academic papers can be intimidating for self-taught graphics programmers and data wranglers :) 
+Motivation: Academic papers can be intimidating for self-taught graphics programmers and data wranglers.
 
-> **Note**: There will be some discussion of vectorization with [numpy](https://www.numpy.org/). 
+> **Note**: There will be some discussion of vectorization with [numpy](https://www.numpy.org/).
 
-> **Note**: We're only looking at `python3`, if there are significant differences with `python2` please bring them up in issues. 
-
+> **Note**: We're only looking at `python3`, if there are significant differences with `python2` please bring them up in issues.
 
 # foreword
 
 Mathematical symbols can mean different things depending on the author, context and the field of study (linear algebra, set theory, etc). This guide may not cover *all* uses of a symbol. In some cases, real-world references (blog posts, publications, etc) will be cited to demonstrate how a symbol might appear in the wild.
 
-For a more complete list, refer to [Wikipedia - List of Mathematical Symbols](https://en.wikipedia.org/wiki/List_of_mathematical_symbols). 
+For a more complete list, refer to [Wikipedia - List of Mathematical Symbols](https://en.wikipedia.org/wiki/List_of_mathematical_symbols).
 
 For simplicity, many of the code examples here operate on floating point values and are not numerically robust. For more details on why this may be a problem, see [Robust Arithmetic Notes](https://github.com/mikolalysenko/robust-arithmetic-notes) by Mikola Lysenko.
 
@@ -34,6 +34,7 @@ There are a variety of naming conventions depending on the context and field of 
 This will also be the format of this guide.
 
 ### Numpy
+
 Numpy is a powerful **array programming** library, which in python can be
 interpreted as a **domain specific language** (DSL). Sometimes it's helpful to
 think of math in python as two languages sharing a namespace, with special
@@ -81,9 +82,9 @@ def almost_equal(x, y, epsilon=7):
 
 **Note**: subclasses of [`unittest.TestCase`](https://docs.python.org/3/library/unittest.html) come with their own `assertAlmostEqual`.
 
-**Warning**: *please* don't use exact `==` equality on floats! 
+**Warning**: *please* don't use exact `==` equality on floats!
 
-In mathematical notation, you might see the `:=`, `=:` and `=` symbols being used for *definition*.<sup>[2]</sup>
+In mathematical notation, you might see the `:=`, `=:` and `=` symbols being used for *definition*.[sup][2]
 
 For example, the following defines *x* to be another name for 2*kj*.
 
@@ -91,16 +92,18 @@ For example, the following defines *x* to be another name for 2*kj*.
 
 <!-- x := 2kj -->
 
-In python, we *define* our variables and provide aliases with `=`. 
+In python, we *define* our variables and provide aliases with `=`.
 
 ```python
 x = 2 * k * j
 ```
-*Assignment* in python is generally *mutable* besides special cases like `Tuple`. 
 
-> **Note**: Some languages have pre-processor `#define` statements, which are closer to a mathematical *define*. 
+*Assignment* in python is generally *mutable* besides special cases like `Tuple`.
 
-Notice that `def` is a form of `:=` as well. 
+> **Note**: Some languages have pre-processor `#define` statements, which are closer to a mathematical *define*.
+
+Notice that `def` is a form of `:=` as well.
+
 ```python
 def plus(x, y): 
   return x + y
@@ -112,9 +115,9 @@ The following, on the other hand, represents equality:
 
 <!-- x = 2kj -->
 
-**Important**: the difference between `=` and `==` can be more obvious in code than it is in math literature! In python, a `=` is an *instruction*. You're telling the machine to interact with the namespace, add something to it or change something in it. In python, when you write `==` you're asking the machine "may I have a `bool`?". In math, the former case is *either* covered by `:=` or `=`, while the latter case is *usually* `=`, and you might have to do some disambiguating in your reading. 
+**Important**: the difference between `=` and `==` can be more obvious in code than it is in math literature! In python, a `=` is an *instruction*. You're telling the machine to interact with the namespace, add something to it or change something in it. In python, when you write `==` you're asking the machine "may I have a `bool`?". In math, the former case is *either* covered by `:=` or `=`, while the latter case is *usually* `=`, and you might have to do some disambiguating in your reading.
 
-In math, when I write 1 + 1 = 2 I'm making a *judgment*. It's not that i'm asking the world (or the chalkboard) for a bool, it's that I'm keeping track of my beliefs. This distinction is the foundation of *unit tests* or *assertions*. 
+In math, when I write 1 + 1 = 2 I'm making a *judgment*. It's not that i'm asking the world (or the chalkboard) for a bool, it's that I'm keeping track of my beliefs. This distinction is the foundation of *unit tests* or *assertions*.
 
 ```python
 
@@ -124,9 +127,6 @@ assert plus(1, 1) == 2, "DANGER: PHYSICS IS BROKEN. PLEASE STAY INSIDE. "
 
 It's important to know *when a falsehood ought to crash a program* vs. when you just want a boolean value. To understand this better, read [this][3].  
 
-
-
-
 ## square root and complex numbers
 
 A square root operation is of the form:
@@ -135,7 +135,7 @@ A square root operation is of the form:
 
 <!-- \left(\sqrt{x}\right)^2 = x -->
 
-In programming we use a `sqrt` function, like so: 
+In programming we use a `sqrt` function, like so:
 
 ```python
 import math
@@ -153,7 +153,7 @@ Complex numbers are expressions of the form ![complex](http://latex.codecogs.com
 ![imaginary](http://latex.codecogs.com/svg.latex?i%3D%5Csqrt%7B-1%7D).
 <!-- i=\sqrt{-1} -->
 
-Vanilla python has a `complex` constructor, and a standard module `cmath` for working with them. 
+Vanilla python has a `complex` constructor, and a standard module `cmath` for working with them.
 
 ```python
 complex(1,1)
@@ -174,23 +174,23 @@ np.conj(complex(0.5,0.5))
 assert cmath.sqrt(complex(-1, 0)) == complex(0,1)
 ```
 
-As you can see, it uses `j` to denote the imaginary unit, instead of `i`. 
+As you can see, it uses `j` to denote the imaginary unit, instead of `i`.
 
-The **conjugate** of a complex number is **flipping the sign of the imaginary part**. 
+The **conjugate** of a complex number is **flipping the sign of the imaginary part**.
 
 If `z` is a python `complex` number, `z.real` gets the real part (exactly as an
-object attribute) and `z.imag` gets the imaginary part. 
+object attribute) and `z.imag` gets the imaginary part.
 
 Just as complex numbers can be interpreted as a sort of wrapper around tuples of
 reals, a complex number data type wraps two floats. Numpy uses this to implement
-complex numbers of different sizes/precisions. 
+complex numbers of different sizes/precisions.
 
 The syntax is close enough to `cmath`, but it comes with the power and
 convenience of numpy. Importantly, other numpy methods are better at *casting*
-to and from complex. 
-
+to and from complex.
 
 observe the following [cube roots of unity](https://www.math-only-math.com/the-cube-roots-of-unity.html)
+
 ```python
 z1 = 0.5 * np.complex(-1, math.sqrt(3)) # Numpy's constructor is basically the same.  
 z2 = np.conj(z1) # but numpy gives us a conjugation function, while the standard module does not. 
@@ -200,6 +200,7 @@ assert math.isclose(z1**3, z2**3)
 
 np.testing.assert_almost_equal(z1**3, z2**3)
 ```
+
 [Read on about numpy's complex numbers](https://docs.scipy.org/doc/numpy/user/basics.types.html)
 
 ## dot & cross
@@ -238,13 +239,13 @@ result = 3 * k * j
 
 To denote multiplication of one vector with a scalar, or element-wise multiplication of a vector with another vector, we typically do not use the dot `·` or cross `×` symbols. These have different meanings in linear algebra, discussed shortly.
 
-Let's take our earlier example but apply it to vectors. For element-wise vector multiplication, you might see an open dot `∘` to represent the [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_%28matrices%29).<sup>[2]</sup>
+Let's take our earlier example but apply it to vectors. For element-wise vector multiplication, you might see an open dot `∘` to represent the [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_%28matrices%29).[sup][2]
 
 ![dotcross3](http://latex.codecogs.com/svg.latex?3%5Cmathbf%7Bk%7D%5Ccirc%5Cmathbf%7Bj%7D)
 
 <!-- 3\mathbf{k}\circ\mathbf{j} -->
 
-In other instances, the author might explicitly define a different notation, such as a circled dot `⊙` or a filled circle `●`.<sup>[3]</sup>
+In other instances, the author might explicitly define a different notation, such as a circled dot `⊙` or a filled circle `●`.[sup][3]
 
 Here is how it would look in code, using arrays `[x, y]` to represent the 2D vectors.
 
@@ -270,9 +271,9 @@ def multiply_scalar(scalar, a):
 
 ```
 
-Similarly, matrix multiplication typically does not use the dot `·` or cross symbol `×`. 
+Similarly, matrix multiplication typically does not use the dot `·` or cross symbol `×`.
 
-Numpy's broadcasted syntax for scaling looks like this: 
+Numpy's broadcasted syntax for scaling looks like this:
 
 ```python
 def multiply_scalar(scalar, a): 
@@ -336,9 +337,9 @@ def cross(a, b):
 ```
 
 It's good to practice and grok these operations, but in real life you'll use
-Numpy. 
+Numpy.
 
-## sigma 
+## sigma
 
 The big Greek `Σ` (Sigma) is for [Summation](https://en.wikipedia.org/wiki/Summation). In other words: summing up some numbers.
 
@@ -348,7 +349,8 @@ The big Greek `Σ` (Sigma) is for [Summation](https://en.wikipedia.org/wiki/Summ
 
 Here, `i=1` says to start at `1` and end at the number above the Sigma, `100`. These are the lower and upper bounds, respectively. The *i* to the right of the "E" tells us what we are summing. In code:
 
-Hence, the big sigma is the `for` keyword. 
+Hence, the big sigma is the `for` keyword.
+
 ```python
 sum([k for k in range(100)])
 # Out: 5050
@@ -380,7 +382,7 @@ sum([2*k + 1 for k in range(100)])
 
 **important**: `range` in python has an *inclusive lower bound and exclusive
 upper bound*, meaning that `... for k in range(100)` is equivalent to `the sum of
-... for k=0 to k=n`. 
+... for k=0 to k=n`.
 
 If you're still not absolutely fluent in indexing for these applications, spend some time with [Trev Tutor](https://youtu.be/TDpQSa3hJRw) on youtube.
 
@@ -405,10 +407,9 @@ sum(
 # Out: 135
 ```
 
-
 ## capital Pi
 
-The capital Pi or "Big Pi" is very similar to [Sigma](#sigma), except we are using multiplication to find the product of a sequence of values. 
+The capital Pi or "Big Pi" is very similar to [Sigma](#sigma), except we are using multiplication to find the product of a sequence of values.
 
 Take the following:
 
@@ -417,7 +418,8 @@ Take the following:
 <!-- \prod_{i=1}^{6}i -->
 
 This was removed from vanilla python for python 3, but it's easy to recover with
-a generalization of the list accumulator. 
+a generalization of the list accumulator.
+
 ```python
 def times(x, y): 
   ''' first, give a name to the multiplication operator '''
@@ -430,9 +432,9 @@ reduce(times, range(1,7))
 ```
 
 With reduce, you can actually repeatedly apply a binary function to items of a
-list and accumulate the value _for any binary operator_. Python gives `and` and
+list and accumulate the value *for any binary operator*. Python gives `and` and
 `or` out of the box like `sum`, but keep `reduce` in mind if you encounter a
-less common binary operator out in the wild. 
+less common binary operator out in the wild.
 
 Note that in Numpy arrays, the syntax is different (and product is given out of
 the box)
@@ -449,8 +451,9 @@ xs.sum()
 ys.prod()
 # Out: 720
 ```
+
 which is better on larger input, but you're always welcome to use functions for
-ordinary lists as you please. 
+ordinary lists as you please.
 
 ## pipes
 
@@ -460,7 +463,7 @@ context. Below are three common uses: [absolute value](#absolute-value),
 
 These three features all describe the *length* of an object.
 
-#### absolute value 
+#### absolute value
 
 ![pipes1](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%20x%20%5Cright%20%7C)
 
@@ -473,6 +476,7 @@ x = -5
 abs(x)
 # Out: 5
 ```
+
 #### Euclidean norm
 
 ![pipes4](http://latex.codecogs.com/svg.latex?%5Cleft%20%5C%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%5C%7C)
@@ -507,16 +511,17 @@ def length(vec):
 ```
 
 The implementation for arbitrary length'd vectors is left as an exercise for the
-reader. 
+reader.
 
-In practice, you'll probably use the following numpy call 
+In practice, you'll probably use the following numpy call
 
 ```python
 np.linalg.norm([0, 4, -3])
 # Out: 5.0
 ```
 
-Resources: 
+Resources:
+
 - [numpy.linalg docs](get link to numpy.linalg docs)
 
 #### determinant
@@ -553,7 +558,7 @@ np.linalg.det(np.array([[0, -1], [1, 0]])) # 90 degree rotation.
 
 ```
 
-The second matrix was the [**2D rotation**](https://en.wikipedia.org/wiki/Rotation_matrix) at 90 degrees. 
+The second matrix was the [**2D rotation**](https://en.wikipedia.org/wiki/Rotation_matrix) at 90 degrees.
 
 ## hat
 
@@ -572,7 +577,7 @@ normalize(a)
 ```
 
 If a vector is that which has magnitude and direction, normalization of a vector
-is the operation that deletes magnitude and preserves direction. 
+is the operation that deletes magnitude and preserves direction.
 
 Here is the `normalize` function, operating on 3D vectors:
 
@@ -597,7 +602,7 @@ Which Numpy's **broadcasting** syntax sugar can do in fewer lines
 You should try to generalize this to vectors of arbitrary length yourself,
 before reading this...
 
-Go, I mean it! 
+Go, I mean it!
 
 ```python
 def normalize(vec):
@@ -607,11 +612,11 @@ def normalize(vec):
   if length > 0:
     return vec / length
 ```
+
 Notice that **broadcasting** here is just short for `[x / length for x in vec]`.
-But it's actually **faster** on large input, because arrays. 
+But it's actually **faster** on large input, because arrays.
 
 [*Read* the Numpy docs. *BE* the Numpy docs](https://docs.scipy.org/doc/numpy/reference/routines.linalg.html)
-
 
 ## element
 
@@ -621,9 +626,9 @@ In set theory, the "element of" symbol `∈` and `∋` can be used to describe w
 
 <!-- A=\left \{3,9,14}{  \right \}, 3 \in A -->
 
-Here we have a set of numbers *A* = `{ 3, 9, 14 }` and we are saying `3` is an "element of" that set. 
+Here we have a set of numbers *A* = `{ 3, 9, 14 }` and we are saying `3` is an "element of" that set.
 
-The `in` keyword plays the role of the elementhood function, giving a bool. 
+The `in` keyword plays the role of the elementhood function, giving a bool.
 
 ```python
 A = [ 3, 9, 14 ]
@@ -633,7 +638,7 @@ A = [ 3, 9, 14 ]
 ```
 
 Python also has `set`. You can wrap any iterable or generator with the `set` keyword to delete
-repeats. 
+repeats.
 
 ```python
 set([3,3,3,2,4,3,3,3,1,2,4,5,3])
@@ -655,13 +660,13 @@ You can also use the "not an element of" symbols `∉` and `∌` like so:
 
 <!-- A=\left \{3,9,14}{  \right \}, 6 \notin A -->
 
-Which you know is represented by the convenient `not` keyword in python. 
+Which you know is represented by the convenient `not` keyword in python.
 
 ## common number sets
 
 You may see some some large [Blackboard](https://en.wikipedia.org/wiki/Blackboard_bold) letters among equations. Often, these are used to describe sets.
 
-For example, we might describe *k* to be an [element of](#element) the set `ℝ`. 
+For example, we might describe *k* to be an [element of](#element) the set `ℝ`.
 
 ![real](http://latex.codecogs.com/svg.latex?k%20%5Cin%20%5Cmathbb%7BR%7D)
 
@@ -673,7 +678,7 @@ Listed below are a few common sets and their symbols.
 
 The large `ℝ` describes the set of *real numbers*. These include integers, as well as rational and irrational numbers.
 
-Computers approximate `ℝ` with `float`. 
+Computers approximate `ℝ` with `float`.
 
 You can use `isinstance` to check "*k* ∈ ℝ", where float and `ℝ` aren't *really*
 the same thing but the intuition is close enough.  
@@ -684,7 +689,7 @@ isinstance(np.pi, float)
 ```
 
 Again, you may elevate that bool to an `assertion` that makes-or-breaks the whole program
-with the `assert` keyword when you see fit. 
+with the `assert` keyword when you see fit.
 
 [Excellent resource on floats in python](https://youtu.be/zguLmgYWhM0)
 
@@ -696,11 +701,11 @@ Rational numbers are real numbers that can be expressed as a fraction, or
 Imagine taking `ℝ` and removing radicals (like `np.sqrt`) and logarithms (in a
 family called
 [transcendentals](https://en.wikipedia.org/wiki/Transcendental_function)),
-that's basically what `ℚ` is, at least enough for a rough first approximation. 
+that's basically what `ℚ` is, at least enough for a rough first approximation.
 
 This also means that all integers are rational numbers, since the denominator can be expressed as 1.
 
-An irrational number, on the other hand, is one that cannot be expressed as a ratio, like π (`math.pi`). 
+An irrational number, on the other hand, is one that cannot be expressed as a ratio, like π (`math.pi`).
 
 A reason a programmer might care about the difference between Q and R is in the
 design of unit tests--- *fractions are terminating decimals*, and sometimes when
@@ -715,9 +720,9 @@ You can work with rationals without dividing them into floatiness with the
 #### `ℤ` integers
 
 An integer is a whole number. Just imagine starting from zero and one and
-building out an inventory with addition and subtraction. 
+building out an inventory with addition and subtraction.
 
-An integer has no division, no decimals. 
+An integer has no division, no decimals.
 
 ```python
 assert isinstance(8/7, int), "GO DIRECTLY TO JAIL"
@@ -725,14 +730,14 @@ assert isinstance(8/7, int), "GO DIRECTLY TO JAIL"
 
 #### `ℕ` natural numbers
 
-A natural number, a non-negative integer. 
+A natural number, a non-negative integer.
 
 This is actually the only set invented by the [flying spaghetti monster](https://www.brainyquote.com/quotes/leopold_kronecker_338745): as for the
-others, humans have themselves to blame. 
+others, humans have themselves to blame.
 
 Depending on the context and field of study, the set may or may not **start with zero**.
 
-...ok but, between you and me, **they 200% start with zero**. 
+...ok but, between you and me, **they 200% start with zero**.
 
 `ℕ` also happens to be the first **inductive construction** in the [study of
 datatypes](https://en.wikipedia.org/wiki/Semantics_(computer_science)), consisting of a single axiom ("Zero is a `ℕ`") and a single
@@ -745,25 +750,25 @@ combines `x >= 0` judgments with `isinstance(x, int)`.
 #### `ℂ` complex numbers
 
 As we saw earlier, the complex numbers are a particular wrapper around tuples of
-reals. 
+reals.
 
 A complex number is a combination of a real and imaginary number, viewed as a co-ordinate in the 2D plane. For more info, see [A Visual, Intuitive Guide to Imaginary Numbers](http://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/).
 
 We can say `ℂ = {a + b*i | a,b ∈ ℝ}`, which is a notation called
 
-## Set builder notation 
+## Set builder notation
 
 Pythoners have a name for *set builder notation*; and the name is comprehension
 
 - `{ }`: delimiter around iterable (curlybois for `dict` or `set`, `[` for list)
 - `a + b * i`: an expression (for instance, earlier when we made a list of odd numbers this
-  expression was `2*k + 1`) to be evaluated for each item in source list. 
+  expression was `2*k + 1`) to be evaluated for each item in source list.
 - `|`: `for`
 - `a,b ∈ ℝ`: this just shows that `a,b` are drawn from a particular place, in
-  this case the real numbers. 
+  this case the real numbers.
   
 So if you've been writing Python listcomps, that definition of the complex
-numbers wasn't so bad! Say it with me this time 
+numbers wasn't so bad! Say it with me this time
 
 `ℂ = {a + b*i | a,b ∈ ℝ}``
 
@@ -813,19 +818,20 @@ Sometimes a function is not named, and instead the output is written.
 
 In the above example, *x* is the input, the transformation is *squaring*, and *y*
 is the output. We can express this as an equation because, conventionally, we
-think of *x* as input and *y* as output. 
+think of *x* as input and *y* as output.
 
-But we have a stronger idea called **anonymous functions** to generalize this. 
+But we have a stronger idea called **anonymous functions** to generalize this.
 
 Just as we can name strings `x = "Alonzo"` then call them with their names *or*
-we can just pass string *literals*, we also have **function literals**. 
+we can just pass string *literals*, we also have **function literals**.
 
-Math first, then python: 
+Math first, then python:
 
-`x ↦ x^2` is equivalent to the equational description above. 
+`x ↦ x^2` is equivalent to the equational description above.
 
 Nearly identical, but very different to the untrained eye, is `λx.x^2`, hence
-the python keyword 
+the python keyword
+
 ```python
 lambda x: x**2
 ```
@@ -925,7 +931,7 @@ It might also be written in the following form:
 
 <!-- f : x \mapsto x^2 -->
 
-The arrow here with a tail typically means "maps to," as in *x maps to x<sup>2</sup>*. 
+The arrow here with a tail typically means "maps to," as in *x maps to x[sup]2*.
 
 Sometimes, when it isn't obvious, the notation will also describe the *domain* and *codomain* of the function. A more formal definition of *ƒ* might be written as:
 
@@ -980,7 +986,7 @@ Other languages, like Java, allow for true method overloading based on the
 static types of a function's input/output. This is closer to mathematics: two
 functions are not the same if they use a different *domain*. This is also called
 *polymorphism* and it explains why `'literally' + 'alonzo'` concats two strings
-together but `1 + 1` is addition on numbers. 
+together but `1 + 1` is addition on numbers.
 
 ## prime
 
@@ -1012,7 +1018,7 @@ def f_prime(x):
   return 2 * x
 ```
 
-Multiple prime symbols can be used to describe the second derivative *ƒ′′* and third derivative *ƒ′′′*. After this, authors typically express higher orders with roman numerals *ƒ*<sup>IV</sup> or superscript numbers *ƒ*<sup>(n)</sup>.
+Multiple prime symbols can be used to describe the second derivative *ƒ′′* and third derivative *ƒ′′′*. After this, authors typically express higher orders with roman numerals *ƒ*[sup]IV or superscript numbers *ƒ*[sup](n).
 
 ## floor & ceiling
 
@@ -1044,7 +1050,7 @@ When the two symbols are mixed `⌊x⌉`, it typically represents a function tha
 
 <!-- round(x) =  \lfloor x \rceil -->
 
-Python automatically gives you a keyword `round` to call on a number. 
+Python automatically gives you a keyword `round` to call on a number.
 
 ## arrows
 
@@ -1130,7 +1136,7 @@ The down arrow `∨` is logical disjunction, like the OR operator.
 <!-- A \lor B -->
 
 In Python, we have the `or` keyword. Like and, it is a function that will trade
-you one bool for two bools. 
+you one bool for two bools.
 
 ## logical negation
 
@@ -1179,10 +1185,9 @@ For example we to indicate that a point `x` is in the unit cube in 3D we say:
 <!-- x \in [0, 1]^3 -->
 
 In Python, we have to be sensitive about **inclusive vs. exclusive boundaries**
-in generators like `range`, but you already know that. 
+in generators like `range`, but you already know that.
 
 if you want to play with *infinite lists* in Python, learn more about [generators](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/)
-
 
 Intervals are used in conjunction with set operations:
 
@@ -1218,7 +1223,7 @@ Integer versions in basic python look like this
 # Out: [5, 6]
 ```
 
-Using `np.linspace`, we can approximate what the real versions would look like. 
+Using `np.linspace`, we can approximate what the real versions would look like.
 
 ```python
 R = np.linspace(-1, 9, 100)
@@ -1235,4 +1240,4 @@ R = np.linspace(-1, 9, 100)
 [x for x in R if 4 <= x <= 6 and not (3 <= x < 5)]
 ```
 
-You should definitely run these in repl and try to wrap your head around them. 
+You should definitely run these in repl and try to wrap your head around them.
