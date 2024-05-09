@@ -81,7 +81,7 @@ docker version
 docker run hello-world
 ```
 
-To continue with this cheat sheet, right click the Docker icon in the system tray, and go to settings. In order to mount volumes, the C:/ drive will need to be enabled in the settings to that information can be passed into the containers (later described in this article). 
+To continue with this cheat sheet, right click the Docker icon in the system tray, and go to settings. In order to mount volumes, the C:/ drive will need to be enabled in the settings to that information can be passed into the containers (later described in this article).
 
 To switch between Windows containers and Linux containers, right click the icon in the system tray and click the button to switch container operating system Doing this will stop the current containers that are running, and make them unaccessible until the container OS is switched back.
 
@@ -105,7 +105,7 @@ docker run hello-world
 
 Windows Server 2016 is not able to run Linux images. 
 
-Windows Server Build 2004 is capable of running both linux and windows containers simultaneously through Hyper-V isolation. When running containers, use the ```--isolation=hyperv``` command, which will isolate the container using a seperate kernel instance. 
+Windows Server Build 2004 is capable of running both linux and windows containers simultaneously through Hyper-V isolation. When running containers, use the ```--isolation=hyperv``` command, which will isolate the container using a seperate kernel instance.
 
 ### Check Version
 
@@ -788,22 +788,27 @@ docker images -viz | dot -Tpng -o docker.png
 ### Slimming down Docker containers
 
 - Cleaning APT in a `RUN` layer - This should be done in the same layer as other `apt` commands. Otherwise, the previous layers still persist the original information and your images will still be fat.
+  
     ```Dockerfile
     RUN {apt commands} \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     ```
+
 - Flatten an image
+  
     ```sh
     ID=$(docker run -d image-name /bin/bash)
     docker export $ID | docker import – flat-image-name
     ```
+
 - For backup
-    ```sh
+  
+```sh
     ID=$(docker run -d image-name /bin/bash)
     (docker export $ID | gzip -c > image.tgz)
     gzip -dc image.tgz | docker import - flat-image-name
-    ```
+```
 
 ### Monitor system resource utilization for running containers
 
