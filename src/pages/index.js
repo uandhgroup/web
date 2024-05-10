@@ -113,7 +113,7 @@ export default class Index extends React.Component {
           <p>This project exists thanks to all the people who contribute. [<a href="https://github.com/terser/terser/blob/master/CONTRIBUTING.md">Contribute</a>].</p>
 
           <p>
-            <a href="https://github.com/terser/terser/graphs/contributors"><img src="https://opencollective.com/terser/contributors.svg?width=890&amp;button=false" loading="lazy" /></a>
+            <a href="https://raw.githubusercontent.com/uandhgroup/tech-stack-icons/42b8bb1589c5d083eff4eaebb6ee3538554b502a/Icons/tech.svg?width=890&amp;button=false" loading="lazy" /></a>
           </p>
 
           <h2>Individual Financial Contributors</h2>
